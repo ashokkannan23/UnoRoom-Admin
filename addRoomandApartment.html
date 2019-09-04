@@ -1,166 +1,209 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>unorooms-admin</title>
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
-        <link rel="stylesheet" href="assets/css/styles.css">
-        <link rel="stylesheet" href="assets/css/admin.css">
-        <link rel="stylesheet" href="assets/css/add-building-rooms-apartment.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src='assets/load-html/load.js'></script>
-    </head>
-    <body>
-        <div class="container-fluid">
-            <div class="row">
-                <!-- logo -->
-                <span class="col-xl-2 col-lg-2 col-md-3"  id="unoroom-logo"></span>
-                <div class="col-xl-10 col-lg-10 col-md-9" id="dashboard_secondpart">
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4" style="float:left;">
-                    <h5 class="align-middle" style="color:rgb(0,0,0);padding-top:20px;">Add Room / Apartment</h5></div>
-                    <div class="btn-group" id="Add-admin-dropdown">
-                        <!-- admin-dropdown -->
-                        <div id="admin-drop-down"></div>
-                    </div>
+<!-- test -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unorooms-admin</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="assets/css/add-building-rooms-apartment.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src='assets/load-html/load.js'></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- logo -->
+            <span class="col-xl-2 col-lg-2 col-md-3" id="unoroom-logo"></span>
+            <div class="col-xl-10 col-lg-10 col-md-9" id="dashboard_secondpart">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4" style="float:left;">
+                    <h5 class="align-middle" style="color:rgb(0,0,0);padding-top:20px;">Add Room / Apartment</h5>
+                </div>
+                <div class="btn-group" id="Add-admin-dropdown">
+                    <!-- admin-dropdown -->
+                    <div id="admin-drop-down"></div>
                 </div>
             </div>
         </div>
-        <div>
-            <div class="container-fluid">
-                <div class="row" style="overflow:hidden;clear:both;">
-                    <div class="col-lg-2 col-md-3 col-xl-2" id="navigation">
-                        <!-- Browse navigation -->
-                        <div id="browse-navigation"></div>
-                    </div>
-                    <div class="col-lg-10 col-md-9 col-xl-10" id="main-table">
-                        <div class="row" style="margin:10px 20px;">
-                            <form data-toggle="validator" role="form">
-                                
-                                <div class="form-row">
-                                    <div class="form-group col-xl-6 col-lg-6 col-md-6" id="changecontent" style="border:1px solid black;padding:10px;">
-                                        <div class="form-row">
-                                            <div class="form-group col-xl-12">
-                                                Name * <span style="color:red;font-size:12px;" id="room_name_val"></span> <input type="text" class="form-control form-control-sm"  id="room_name" value=""  placeholder="" name="text1">
-                                            </div>
-                                            <div class="form-group col-xl-6 col-lg-6 col-md-6">
-                                                Room Type* <select class="form-control form-control-sm" id="room_type"  name="sellist1">
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-xl-6 col-lg-6 col-md-6">
-                                                Room Size(square feet) * <span style="color:red;font-size:12px;"id="room_size_val"></span> <input type="text" class="form-control form-control-sm"  id="room_size" value=""  placeholder="" name="text1">
-                                            </div>
-                                            <div class="form-group col-xl-6 col-lg-6 col-md-6">
-                                                Price per day* <span style="color:red;font-size:12px;"id="room_price_val"></span> <input type="text" class="form-control form-control-sm" id="room_price" value=""  placeholder="" name="text1">
-                                            </div>
-                                            <div class="form-group col-xl-6 col-lg-6 col-md-6">
-                                                count* <span style="color:red;font-size:12px;" id="room_count_val"> </span> <input type="text" class="form-control form-control-sm" value=""  id="room_count" name="username">
-                                            </div>
-                                            <div class="col-xl-12">
-                                                <div class="float-left">
-                                                    
-                                                </div>
-                                                <div class="float-right">
-                                                    <button type="button" id="Go_back_to_image" style=""  class="btn btn-dark"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Back</button>
-                                                    <button type="button" id="Update_room" style="display:none;" class="btn btn-info" value="" >UPDATE <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-                                                    <button type="button" id="Delete_landmark" style="display:none;"  class="btn btn-danger">DELETE <i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                                    <button type="button" id="save_room"  class="btn btn-info">SAVE <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-                                                    
-                                                </div>
-                                            </div>
+    </div>
+    <div>
+        <div class="container-fluid">
+            <div class="row" style="overflow:hidden;clear:both;">
+                <div class="col-lg-2 col-md-3 col-xl-2" id="navigation">
+                    <!-- Browse navigation -->
+                    <div id="browse-navigation"></div>
+                </div>
+                <div class="col-lg-10 col-md-9 col-xl-10" id="main-table">
+                    <div class="row" style="margin:10px 20px;">
+                        <form data-toggle="validator" role="form">
+
+                            <div class="form-row">
+                                <div class="form-group col-xl-6 col-lg-6 col-md-6" id="changecontent"
+                                    style="border:1px solid black;padding:10px;">
+                                    <div class="form-row">
+                                        <div class="form-group col-xl-12">
+                                            Name * <span style="color:red;font-size:12px;" id="room_name_val"></span>
+                                            <input type="text" class="form-control form-control-sm" id="room_name"
+                                                value="" placeholder="" name="text1">
                                         </div>
-                                    </div>
-                                    <div class="form-group col-xl-6 col-lg-6 col-md-6"  id="displayimage" style="border:1px solid black;padding:10px;display:none;">
-                                        
-                                        <div class="form-group col-xl-12 col-lg-12 col-md-12">
-                                            Category * <span style="color:red;font-size:12px;" id="Category" disabled> </span> <input type="text" class="form-control form-control-sm" value=""  id="Category_from" name="username">
+                                        <div class="form-group col-xl-6 col-lg-6 col-md-6">
+                                            Room Type* <select class="form-control form-control-sm" id="room_type"
+                                                name="sellist1">
+                                            </select>
                                         </div>
-                                        <div class="form-group col-xl-12 col-lg-12 col-md-12">
-                                            Description * <span style="color:red;font-size:12px;" id="Description" disabled> </span> <input type="text" class="form-control form-control-sm" value=""  id="Description_from" name="username">
+                                        <div class="form-group col-xl-6 col-lg-6 col-md-6">
+                                            Room Size(square feet) * <span style="color:red;font-size:12px;"
+                                                id="room_size_val"></span> <input type="text"
+                                                class="form-control form-control-sm" id="room_size" value=""
+                                                placeholder="" name="text1">
+                                        </div>
+                                        <div class="form-group col-xl-6 col-lg-6 col-md-6">
+                                            Price per day* <span style="color:red;font-size:12px;"
+                                                id="room_price_val"></span> <input type="text"
+                                                class="form-control form-control-sm" id="room_price" value=""
+                                                placeholder="" name="text1">
+                                        </div>
+                                        <div class="form-group col-xl-6 col-lg-6 col-md-6">
+                                            count* <span style="color:red;font-size:12px;" id="room_count_val"> </span>
+                                            <input type="text" class="form-control form-control-sm" value=""
+                                                id="room_count" name="username">
                                         </div>
                                         <div class="col-xl-12">
-                                            
-                                            	
-                                            <div  class="" id="dialog">
-                                                
-                                                <label type="button" class="btn btn-primary" style="margin-top:70px;">
-											
-                                                    Upload Property Images <i class="fa fa-upload" aria-hidden="true"></i>
-                                                    <input type="file"  name="file[]" id="file" multiple style="display:none;">
-                                                </label>
-												<span style="color:red;font-size:12px;margin-left:-150px;" id="dialog2"> </span>
-                                                
-                                                
-                                                
-                                                <button type="button" id="save_room_image"  class="btn btn-info" style="float:right;margin-top:70px;">SAVE <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                                            <div class="float-left">
+
                                             </div>
-                                            
+                                            <div class="float-right">
+                                                <button type="button" id="Go_back_to_image" style=""
+                                                    class="btn btn-dark"><i class="fa fa-long-arrow-left"
+                                                        aria-hidden="true"></i> Back</button>
+                                                <button type="button" id="Update_room" style="display:none;"
+                                                    class="btn btn-info" value="">UPDATE <i class="fa fa-floppy-o"
+                                                        aria-hidden="true"></i></button>
+                                                <button type="button" id="Delete_landmark" style="display:none;"
+                                                    class="btn btn-danger">DELETE <i class="fa fa-trash-o"
+                                                        aria-hidden="true"></i></button>
+                                                <button type="button" id="save_room" class="btn btn-info">SAVE <i
+                                                        class="fa fa-floppy-o" aria-hidden="true"></i></button>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                            </div>
-                        </form>
-                        
-                        <div style="padding:10px;margin:0px 25px;">
-                            <div class="row" style="color:rgb(13,13,13);background-color:#059dd8;;width:auto;">
-                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col">
-                                    <h5 class="align-middle" style="color:rgb(252,253,254);padding-top:7px;">View Room Images</h5>
+                                <div class="form-group col-xl-6 col-lg-6 col-md-6" id="displayimage"
+                                    style="border:1px solid black;padding:10px;display:none;">
+
+                                    <div class="form-group col-xl-12 col-lg-12 col-md-12">
+                                        Category * <span style="color:red;font-size:12px;" id="Category" disabled>
+                                        </span> <input type="text" class="form-control form-control-sm" value=""
+                                            id="Category_from" name="username">
+                                    </div>
+                                    <div class="form-group col-xl-12 col-lg-12 col-md-12">
+                                        Description * <span style="color:red;font-size:12px;" id="Description" disabled>
+                                        </span> <input type="text" class="form-control form-control-sm" value=""
+                                            id="Description_from" name="username">
+                                    </div>
+                                    <div class="col-xl-12">
+
+
+                                        <div class="" id="dialog">
+
+                                            <label type="button" class="btn btn-primary" style="margin-top:70px;">
+
+                                                Upload Property Images <i class="fa fa-upload" aria-hidden="true"></i>
+                                                <input type="file" name="file[]" id="file" multiple
+                                                    style="display:none;">
+                                            </label>
+                                            <span style="color:red;font-size:12px;margin-left:-150px;" id="dialog2">
+                                            </span>
+                                            <button type="button" id="save_room_image" class="btn btn-info"
+                                                style="float:right;margin-top:70px;">SAVE <i class="fa fa-floppy-o"
+                                                    aria-hidden="true"></i></button>
+                                        </div>
+
+                                    </div>
                                 </div>
-                                
                             </div>
-                        </div>
-                        
-                        <div  style="margin:0px 20px;" id="ImageLoad">
-                            <table style="width:100%" id="buildingtitle">
-                                <thead>
-                                    <tr>
-                                        <th>Sr.no</th>
-                                        <th>IMAGE</th>
-                                        <th>Category</th>
-                                        <th>Description</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div style="padding:10px;margin:0px 25px;">
-                            <div class="row" style="color:rgb(13,13,13);background-color:#059dd8;;width:auto;">
-                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col">
-                                    <h5 class="align-middle" style="color:rgb(252,253,254);padding-top:7px;">All Rooms</h5>
+                     </div>
+                    </form>
+                    <div class="row" id="addAmenity" style="margin:8px 16px;display:none;">
+                        <div class="form-group col-xl-12" style="border:1px solid black;padding:10px;">
+                            <div class="form-row">
+                                <h6>Add Amenities</h6>
+
+                                <div class="col-xl-12 col-lg-12 col-md-12"><span style="color:red;font-size:12px;"
+                                        id="amenities_checkbox"></span></div>
+                                <div class="col" id="Put_checkbox">
                                 </div>
-                                
+
                             </div>
-                        </div>
-                        <div  style="margin:0px 20px;">
-                            <table style="width:100%" id="buildingtitle1">
-                                <thead>
-                                    <tr>
-                                        <th>Sr.no</th>
-                                        <th>Name</th>
-                                        <th>Room Type</th>
-                                        <th>Size</th>
-                                        <th>Price</th>
-                                        <th>Count</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                            <button  id="myBtn" title="Go to top">Top</button>
-                            <div style="height:50px;"></div>
+                            <button type="button" id="get_amenities" class="btn btn-info float-right">SAVE <i
+                                    class="fa fa-floppy-o" aria-hidden="true"></i></button>
                         </div>
                     </div>
-                    <!-- main-table -->
-                    
+
+                    <div style="padding:10px;margin:0px 25px;">
+                        <div class="row" style="color:rgb(13,13,13);background-color:#059dd8;;width:auto;">
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col">
+                                <h5 class="align-middle" style="color:rgb(252,253,254);padding-top:7px;">View Room
+                                    Images</h5>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div style="margin:0px 20px;" id="ImageLoad">
+                        <table style="width:100%" id="buildingtitle">
+                            <thead>
+                                <tr>
+                                    <th>Sr.no</th>
+                                    <th>IMAGE</th>
+                                    <th>Category</th>
+                                    <th>Description</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="padding:10px;margin:0px 25px;">
+                        <div class="row" style="color:rgb(13,13,13);background-color:#059dd8;;width:auto;">
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col">
+                                <h5 class="align-middle" style="color:rgb(252,253,254);padding-top:7px;">All Rooms</h5>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div style="margin:0px 20px;">
+                        <table style="width:100%" id="buildingtitle1">
+                            <thead>
+                                <tr>
+                                    <th>Sr.no</th>
+                                    <th>Name</th>
+                                    <th>Room Type</th>
+                                    <th>Size</th>
+                                    <th>Price</th>
+                                    <th>Count</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <button id="myBtn" title="Go to top">Top</button>
+                        <div style="height:50px;"></div>
+                    </div>
                 </div>
+                <!-- main-table -->
+
             </div>
         </div>
+    </div>
     </div>
     <div id="footer"></div>
 </div>
