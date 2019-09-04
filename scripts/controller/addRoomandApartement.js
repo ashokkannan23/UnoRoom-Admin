@@ -239,6 +239,23 @@
 			'</tr>';
 		};
 		$("#buildingtitle > tbody").html(image);
+			//Fetch amenities for  particulr property
+			Meta.getBuildingAmenities().done((amenities) => {
+				var amenitieshtml = '';
+	
+				var amenitieslength = amenities.length;
+	
+				for (i = 0; i <= amenitieslength - 1; i++) {
+	
+					if (i % 4 === 5) {
+						amenitieshtml += '<div  class="checkbox"><label><input type="checkbox" value="' + amenities[i] + '">' + amenities[i].replace(/([A-Z])/g, ' $1').trim() + '</label></div></br>';
+					} else {
+						amenitieshtml += '<div id="alignment" class="checkbox"><label><input type="checkbox" class="chk" value="' + amenities[i] + '">' + amenities[i].replace(/([A-Z])/g, ' $1').trim() + '</label></div>';
+					}
+	
+				};
+	
+				$("#Put_checkbox").html(amenitieshtml);
 
 		var edited = mPropertyDetails.rooms;
 		for (var i in edited) {
@@ -269,8 +286,9 @@
 		}
 		$("#Update_room").show();
 		$("#displayimage").show();
+		$("#addAmenity").show();
 		$("#save_room").css('display', 'none');
-
+      });
 	}
 
 	// Function Delete Room Images, Category & Description data to backend
