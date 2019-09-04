@@ -43,7 +43,7 @@ var Nav = (() => {
 	}
 	
 	var gotoAddRooms = (propertyid) => {
-		goto('add-building-rooms-apartment.html?building_id=' + propertyid);
+		goto('addRoomandApartment.html?building_id=' + propertyid);
 	}
 	
 	var gotoSearchByCity = () => {

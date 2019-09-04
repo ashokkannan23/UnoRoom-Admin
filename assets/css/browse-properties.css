@@ -45,9 +45,10 @@ background-color:#E0E0E0;
 margin-left: 16%;
 
 }
-#search-field {
-width: 400px;
-}
+/* #search-field { */
+/* width: 400px; */
+/* width: 50em; */
+/* } */
 
 #myBtn {
   display: none;
@@ -67,6 +68,10 @@ width: 400px;
 
 #myBtn:hover {
   background-color: #555;
+}
+
+.giveSpace{
+	padding-left:0.50rem;
 }
 
 /* #buildingtitle{ */
@@ -101,9 +106,9 @@ z-index:1;
 float:left;
 padding:10px;
 }
-#search-field {
-width: 250px;
-}
+/* #search-field { */
+/* width: 40em; */
+/* } */
 #main-table{
 margin-left: 22% !important;
 }
@@ -118,9 +123,9 @@ margin-left: 20%;
 float:left;
 padding:10px;
 }
-#search-field {
-width: 200px;
-}
+/* #search-field { */
+/* width: 30em; */
+/* } */
 #main-table{
 margin-left: 23% !important;
 }	
@@ -162,6 +167,16 @@ margin-top:-70px;
 .navbar-brand {
 display: none;
 }
+/* #search-field { */
+/* width: 30em; */
+/* } */
+
+/* .form-group{ */
+		/* padding-top:-50px !important; */
+	/* } */
+	/* .fa-search{ */
+		/* display:none; */
+	/* } */
 
 }
 
@@ -185,8 +200,11 @@ display: none;
 	position:relative;
 	
 }
+/* #search-field { */
+/* width: 20em; */
+/* } */
 	
-	.form-group{
-		padding-top:20px;
-	}
+	/* .form-group{ */
+		/* padding-top:20px; */
+	/* } */
 }

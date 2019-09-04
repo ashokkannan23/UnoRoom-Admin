@@ -17,6 +17,7 @@
 	};
 	var mPropertyId;
 	var mPropertyDetails;
+	var mAllLandmarkType;
 	
 	// Do followings, on page load.
 	$(document).ready(() => {
@@ -120,19 +121,6 @@
 	function handleEditLandmark() {		
 		var currentRow = $(this).closest("tr");
 		var landmarkid = currentRow.find(".Delete_bul").val();
-		var landmarktype = currentRow.find(".locationtype").val();
-		Meta.getLocationTypes().done((Location) => {
-			var locationhtml = Location.reduce((acc, cv) => {
-					acc += '<option value="' + cv + '">' + cv.replace(/([A-Z])/g, ' $1').trim() + '</option>';
-					return acc;
-				}, '');
-			$('#landmark_type').html(locationhtml);
-		});
-		$("#landmark_type option").each(function () {
-			if ($(this).val() == landmarktype) {
-				$(this).attr("selected", "selected");
-			}
-		});
 		
 		var edited = mPropertyDetails.nearby;
 		for (var i in edited) {
@@ -141,6 +129,18 @@
 				$("#landmark_lat").attr("value", edited[i].location.latitude);
 				$("#landmark_log").attr("value", edited[i].location.longitude);
 				$("#Distance_from").attr("value", edited[i].distanceinmeters);
+				
+				var landmarktypehtml;
+				
+				landmarktypehtml = mAllLandmarkType.reduce((acc, cv) => {
+							if (cv === edited[i].locationtype) {
+								acc += '<option selected value="' + cv + '">' + cv.replace(/([A-Z])/g, ' $1').trim() + '</option>';
+							} else {
+								acc += '<option value="' + cv + '">' + cv.replace(/([A-Z])/g, ' $1').trim() + '</option>';
+							}
+							return acc;
+						}, '');
+				$('#landmark_type').html(landmarktypehtml); 
 			}
 		}
 
@@ -157,7 +157,8 @@
 	// Fetch available location types and show in drop-down
 	function populateLocationTypeDropDown() {
 		Meta.getLocationTypes().done((Location) => {
-			var locationhtml = Location.reduce((acc, cv) => {
+			mAllLandmarkType = Location;
+			var locationhtml = mAllLandmarkType.reduce((acc, cv) => {
 					acc += '<option value="' + cv + '">' +
 					//cv.replace(/([A-Z])/g, ' $1').trim()
 					landmarkTypes[cv]
@@ -247,18 +248,23 @@
 		} else {
 			$("#land_Mark").html("");
 		}
+		
+		if(latitude){
+		if (!Utils.validateLatitude(latitude)) {
+			$("#latitude-code").html("Latitude number should be xx.xxxxxxx");
+		} else {
+			$("#latitude-code").html("");
+		}
+		}
 
-		// if (!Utils.validateLatitude(latitude)) {
-			// $("#latitude-code").html("Latitude number should be xx.xxxxxxx");
-		// } else {
-			// $("#latitude-code").html("");
-		// }
-
-		// if (!Utils.validateLongitude(longitude)) {
-			// $("#longitude-code").html("Longitude number should be xx.xxxxxxx");
-		// } else {
-			// $("#longitude-code").html("");
-		// }
+		if(longitude){
+			
+		if (!Utils.validateLongitude(longitude)) {
+			$("#longitude-code").html("Longitude number should be xx.xxxxxxx");
+		} else {
+			$("#longitude-code").html("");
+		}
+		}
 
 		if (!distance) {
 			$("#distance_Metre").html("Distance must be filled out");

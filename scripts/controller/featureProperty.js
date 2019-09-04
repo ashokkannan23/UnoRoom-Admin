@@ -3,18 +3,40 @@
 	var allFeaturedProperties;
 	
 	$(document).ready(() => {
-        if(!Auth.isLoggedIn()) {
-			//go to login
-			Nav.gotoLogin();
+    if(!Auth.isLoggedIn()) {
+		  	//go to login
+			  Nav.gotoLogin();
             return;
 		}
-        
+ 
+    // Search by "pressing enter Button"
+		// document.getElementById('search-field').addEventListener('keypress', function (event) {
+			// if (event.keyCode == 13) {
+				// event.preventDefault();
+				// $("#searchProperty").click();
+			// }
+		// });
+		
+		// Search by "pressing enter Button Don't Refresh Page"
+				document.getElementById('search-field').addEventListener('keypress', function (event) {
+					if (event.keyCode == 13) {
+						event.preventDefault();
+						searchProperty();
+					}
+				});
+
+				// Search by "Clicking Don't Refresh Page"
+				$('#searchUser').on('click', function (event) {
+					event.preventDefault();
+					searchProperty();
+				});
+           
 		// Populate the UI with featured 
 		// and non-featured property
 		populateUI();
 		
 		// Search By Property Name
-		$("#searchProperty").on("click", function () {
+		function searchProperty(){
 			var input,
 			filter,
 			table,
@@ -28,22 +50,35 @@
 
 			table = document.getElementById("buildingtitle");
 			tr = table.getElementsByTagName("tr");
-			for (i = 0; i < tr.length; i++) {
-				td = tr[i].getElementsByTagName("td")[1];
+			
+			for (i = 1; i < tr.length; i++) {
 
-				if (td) {
-					txtValue = td.textContent || td.innerText;
-					if (txtValue.toUpperCase().indexOf(filter) > -1) {
-						tr[i].style.display = "";
+			var propertyName,
+			city,
+			locality;
+			var nameCol = tr[i].getElementsByTagName("td")[1];
+			if (nameCol)
+				propertyName = nameCol.textContent || nameCol.innerText;
 
-					} else {
-						tr[i].style.display = "none";
-					}
-				}
+			var cityCol = tr[i].getElementsByTagName("td")[2];
+			if (cityCol)
+				city = cityCol.textContent || cityCol.innerText;
+
+			var localityCol = tr[i].getElementsByTagName("td")[3];
+			if (localityCol)
+				locality = localityCol.textContent || localityCol.innerText;
+
+			if ((propertyName && propertyName.toUpperCase().indexOf(filter) > -1) ||
+				(city && city.toUpperCase().indexOf(filter) > -1) ||
+				(locality && locality.toUpperCase().indexOf(filter) > -1)) {
+				tr[i].style.display = "";
+			} else {
+				tr[i].style.display = "none";
 			}
-		});
+		}
+		}
 
-        $(document).on('click', '#SignOut', function () {
+    $(document).on('click', '#SignOut', function () {
 			Auth.logout();
 			//go to login
 			Nav.gotoLogin();
@@ -54,10 +89,10 @@
 		// Show all Featured Property
 		// Fetch all featured properties and update UI
 		UI.getFeaturedProperty().done(propertyList => {
-			
+
 			allFeaturedProperties = propertyList;
-			showFeaturedPropertyList(propertyList);	
-			
+			showFeaturedPropertyList(propertyList);
+
 			// Show all non-Featured property-list
 			// Fetch all property, Remove all featured Property, Update UI
 			Property.listProperties().done(showNonFeaturedPropertyList);
@@ -76,7 +111,7 @@
 		};
 
 		for (i = 0; i <= building - 1; i++) {
-			
+
 			propertyhtml += '<tr class="delete_building">' +
 			'<td>' + properties[i].facilityid + '</td>' +
 			'<td><button  class="btn btn-light buildingname _id" type="button" value="' + properties[i]._id + '">' + properties[i].name + '</button></td>' +
@@ -90,17 +125,17 @@
 		};
 
 		$("#buildingtitle > tbody").html(propertyhtml);
-		var tr = $(propertyhtml).closest('tr');
+		// var tr = $(propertyhtml).closest('tr');
 
-		if ((tr.length >= 5)) {
-			$("#space").addClass("give_space1");
-			$("#space").removeClass("give_space");
-		}
+		// if ((tr.length >= 5)) {
+			// $("#space").addClass("give_space1");
+			// $("#space").removeClass("give_space");
+		// }
 
-		if ((tr.length >= 6)) {
-			$("#space").removeClass("give_space");
-		}
-		
+		// if ((tr.length >= 6)) {
+			// $("#space").removeClass("give_space");
+		// }
+
 		$("#buildingtitle").on('click', '.all_PropertiesID', function () {
 
 			var currentRow = $(this).closest("tr");

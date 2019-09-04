@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>unorooms-admin</title>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <link rel="stylesheet" href="assets/css/admin.css">
+        <link rel="stylesheet" href="assets/css/user.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src='assets/load-html/load.js'></script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <!-- logo -->
+                <span class="col-xl-2 col-lg-2 col-md-3" id="unoroom-logo"></span>
+                <div class="col-xl-10 col-lg-10 col-md-9" id="dashboard_secondpart">
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4" style="float:left;">
+                    <h5 class="align-middle" style="color:rgb(0,0,0);padding-top:20px;">Add User</h5></div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 btn-group" id="Add-admin-dropdown">
+                        <div class="col" id="Plus-button"><a id="edit_Landmark" style="float:right;padding-top:5px;padding-right:100px;cursor: pointer;display:none;"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a></div>
+                        <!-- admin-dropdown -->
+                        <div id="admin-drop-down"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container-fluid">
+                <div class="row" style="overflow:hidden;clear:both;">
+                    <div class="col-lg-2 col-md-3 col-xl-2" id="navigation">
+                        <!-- Browse navigation -->
+                        <div id="browse-navigation"></div>
+                    </div>
+                    <div class="col-lg-10 col-md-9 col-xl-10" id="main-table">
+                        <div class="row" style="margin:10px 20px;">
+                            <div class="form-group col-xl-12" style="border:1px solid black;">
+                                <div class="form-row">
+                                    <div  id="div1-wrapper" style="margin:10px 5px;">
+                                        <div class="row" id="div1">
+                                            <div class="form-group col-xl-6 col-lg-6 col-md-6">
+                                                First Name* <span style="color:red;font-size:12px;" id="firstname"></span> <input type="text" class="form-control form-control-sm giveSpace"  id="first_name" value=""  placeholder="" name="text1">
+                                            </div>
+                                            <div class="form-group col-xl-6 col-lg-6 col-md-6">
+                                                Last Name* <span style="color:red;font-size:12px;"id="lastname"></span> <input type="text" class="form-control form-control-sm giveSpace"  id="last_name" value=""  placeholder="" name="text1">
+                                            </div>
+                                            <div id="userEmail" class="form-group col-xl-6 col-lg-6 col-md-6">
+                                                Emailid* <span style="color:red;font-size:12px;"id="email"></span> <input type="text" class="form-control form-control-sm giveSpace" id="email_Id" value=""  placeholder="" name="text1">
+                                            </div>
+                                            <div id="userPassword" class="form-group col-xl-6 col-lg-6 col-md-6">
+                                                Password* <span style="color:red;font-size:12px;" id="pswd"> </span> <input type="password" class="form-control form-control-sm giveSpace" value=""  id="password" name="username">
+                                            </div>
+                                            <div id="userRole" class="form-group col-xl-6 col-lg-6 col-md-6">
+                                                Role*
+                                                <span style="color:red;font-size:12px;" id="msg">
+                                                    <select class="form-control form-control-sm" id="role"  name="sellist1">
+                                                    </select>
+                                                </div>
+                                                
+                                                <div class="col-xl-12">
+                                                    <div class="float-left">
+                                                        
+                                                    </div>
+                                                    <div class="float-right">
+                                                        <!-- <button type="button" id="Go_back_to_building_GENERAL" style=""  class="btn btn-dark"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> BACK</button> -->
+                                                        
+                                                        <button type="button" id="Update_user" style="display:none;" class="btn btn-info" value="" >UPDATE <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                                                        <button type="button" id="save_user"  class="btn btn-info">SAVE <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                                                        <!-- <button type="button" id="go_to_amenities" style="display:none;" class="btn btn-primary ADD_AMENITIES">ADD AMENITIES <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button> -->
+                                                        <!-- <button type="button" id="go_to_amenities" style="display:none;" class="btn btn-primary VIEW_AMENITIES">VIEW AMENITIES <i class="fa fa-long-arrow-right" aria-hidden="true"></i></button> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            
+                            
+                            <div style="padding:10px;margin:0px 25px;">
+                                <div class="row" style="color:rgb(13,13,13);background-color:#059dd8;width:auto;">
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col">
+                                        <h5 class="align-middle" style="color:rgb(252,253,254);padding-top:7px;">All Users</h5>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                            <div style="padding:5px;margin:0px 15px;">
+                                
+                                <form>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control giveSpace" placeholder="Search" id="search-field" name="search">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default" id="searchUser" type="submit"  style="background-color:#910606;width:60px;border-radius:0rem;"><i class="fa fa-search" style="color:#ffffff"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                            <div style="margin:0px 20px;overflow-x:auto;">
+                                <table  style="width:100%; " id="UserListTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Firstname</th>
+                                            <th>Lastname</th>
+                                            <th>Emailid</th>
+                                            <th>Role</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button  id="myBtn" title="Go to top">Top</button>
+                            <div style="height:50px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="footer"></div>
+        </div>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        
+        <script src='scripts/utils.js'></script>
+        <script src='scripts/navigation.js'></script>
+        
+        <script src='scripts/api/api.js'></script>
+        <script src='scripts/api/meta.js'></script>
+        <script src='scripts/api/auth.js'></script>
+        <script src='scripts/api/user.js'></script>
+        <!-- <script src='scripts/api/property.js'></script> -->
+        <script src='scripts/controller/userAndgroup.js'></script>
+    </body>
+</html>

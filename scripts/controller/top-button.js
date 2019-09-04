@@ -2,23 +2,21 @@
 	
 	// Do followings, on page load.
 	$(document).ready(() => {
-        var p = Auth.isLoggedIn();
-        console.log(p);
-        
-//        if(!Auth.isLoggedIn()) {
-//			//go to login
-//			Nav.gotoLogin();
-//            return;
-//		}
+      
+        if(!Auth.isLoggedIn()) {
+			//go to login
+			Nav.gotoLogin();
+            return;
+		}
         
 		// Handle Top button
         $("#myBtn").on('click', goTop);
         
-//        $(document).on('click', '#SignOut', function () {
-//			Auth.logout();
-//			//go to login
-//			Nav.gotoLogin();
-//		});
+        $(document).on('click', '#SignOut', function () {
+			Auth.logout();
+			//go to login
+			Nav.gotoLogin();
+		});
 
         // Onscrool button shows
         window.onscroll = function () {

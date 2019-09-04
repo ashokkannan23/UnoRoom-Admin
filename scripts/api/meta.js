@@ -12,7 +12,9 @@ var Meta = (() => {
 	
 	var getBuildingAmenities = () => Api.httpGet('meta/buildingamenities/');
 	
-	var getRoomTypes = () => Api.httpGet('meta/roomtypes/');
+	var getRoomTypes = (buildingType) => Api.httpGet('meta/roomtypes?buildingtype=' + buildingType);
+	
+	var getRoles = () => Api.httpGet('meta/user/roles/');
 
 	return {
 		getCities,
@@ -21,6 +23,7 @@ var Meta = (() => {
 		getBuildingTypes,
 		getLocationTypes,
 		getBuildingAmenities,
-		getRoomTypes
+		getRoomTypes,
+		getRoles
 	}
 })();

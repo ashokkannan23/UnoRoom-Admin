@@ -1,11 +1,11 @@
 var Api = (() => {
-	const API_HOST = 'http://ec2-13-233-247-246.ap-south-1.compute.amazonaws.com';
-	const API_PORT = '8080';
+	const API_HOST = 'http://192.168.1.211';
+	const API_PORT = '3000';
 
 	var getBaseUrl = () => (API_HOST + ':' + API_PORT + '/');
 
 	function addAuthenticationHeader(request) {
-		request.setRequestHeader("Authentication", localStorage.getItem('token'));
+		request.setRequestHeader("auth.Authorization", localStorage.getItem('token'));
 	}
 
 	function noOpHeader(request) {}
@@ -16,7 +16,7 @@ var Api = (() => {
 	var httpGet = (path, isAuthenticated) => {
 		return $.ajax({
 			type: 'GET',
-			//beforeSend: isAuthenticated ? addAuthenticationHeader : noOpHeader,
+			// beforeSend: isAuthenticated ? addAuthenticationHeader : noOpHeader,
 			url: getBaseUrl() + path,
 			contentType: "application/json",
 			dataType: 'json'
@@ -28,24 +28,51 @@ var Api = (() => {
 		});
 	};
 
-	/**
+	// /**
+	 // * HTTP POST Method
+	 // */
+	// var httpPost = (path, payload, isAuthenticated) => {
+		// return $.ajax({
+			// type: 'POST',
+			// beforeSend: isAuthenticated ? addAuthenticationHeader : noOpHeader,
+			// url: getBaseUrl() + path,
+			// data: JSON.stringify(payload),
+			// contentType: "application/json",
+			// dataType: 'json'
+		// }).then(null, (e) => {
+			// throw {
+				// status: e.status,
+				// message: e.responseJSON.message
+			// };
+		// });
+	// };
+	
+	
+		/**
 	 * HTTP POST Method
 	 */
 	var httpPost = (path, payload, isAuthenticated) => {
-		return $.ajax({
+		var requestObj = {
 			type: 'POST',
-			// beforeSend: isAuthenticated ? addAuthenticationHeader : noOpHeader,
+			beforeSend: isAuthenticated ? addAuthenticationHeader : noOpHeader,
 			url: getBaseUrl() + path,
-			data: JSON.stringify(payload),
 			contentType: "application/json",
 			dataType: 'json'
-		}).then(null, (e) => {
+		};
+		if (payload)
+			requestObj['data'] = JSON.stringify(payload);
+
+		return $.ajax(requestObj).then(null, (e) => {
 			throw {
 				status: e.status,
 				message: e.responseJSON.message
 			};
 		});
 	};
+	
+	
+	
+	
 
 	/**
 	 * HTTP PUT Method

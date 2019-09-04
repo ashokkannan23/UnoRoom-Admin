@@ -9,20 +9,20 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/admin.css">
+	<link rel="stylesheet" href="assets/css/admin.css">
     <link rel="stylesheet" href="assets/css/browse-properties.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src='assets/load-html/load.js'></script>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src='assets/load-html/load.js'></script>
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="row">
             <!-- logo -->
-            <span class="col-xl-2 col-lg-2 col-md-3" id="unoroom-logo"></span>
+			<span class="col-xl-2 col-lg-2 col-md-3" id="unoroom-logo"></span>
             <div class="col-xl-10 col-lg-10 col-md-9" id="dashboard_secondpart">
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4" style="float:left;">
-                    <h5 class="align-middle" style="color:rgb(0,0,0);padding-top:15px;">Building List</h5>
+                    <h5 class="align-middle" style="color:rgb(0,0,0);padding-top:15px;">Property List</h5>
                 </div>
 
 
@@ -44,24 +44,22 @@
                     <div id="browse-navigation"></div>
                 </div>
                 <div class="col-lg-10 col-md-9 col-xl-10" id="main-table">
-                    <div style="padding:5px;margin:15px;margin-top:-5px;">
-                        <nav class="navbar navbar-light navbar-expand float-right navigation-clean-search" style="padding-right:0px;padding-left:0px;width:100%;height:34px;">
-                            <div class="container-fluid"><a class="navbar-brand" href="#" style="font-weight:normal;font-size:15px;background-color:#04457a;color:rgb(247,246,246);padding:5px;padding-right:5px;margin:0px;margin-right:5px;pointer-events:none;cursor: default;">Search by Building Name</a>
-                                <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                                <div class="collapse navbar-collapse" id="navcol-1"">
-                                    <form class=" form-inline mr-auto" target="_self">
-                                    <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" name="search" id="search-field" style=""></div>
-                                    </form><a class="btn btn-light action-button" role="button" id="searchProperty">Search</a>
-                                </div>
-                            </div>
-                        </nav>
+                    <div style="padding:5px;margin:0px 15px">
+								<form>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control giveSpace" placeholder="Search" id="search-field" name="search">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default" id="searchUser" type="submit"  style="background-color:#910606;width:60px;border-radius:0rem;"><i class="fa fa-search" style="color:#ffffff"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
                     </div>
-                    <div style="margin:50px 20px;overflow-x:auto;">
+                    <div style="margin:0px 20px;overflow-x:auto;">
                         <table style="width:100%" id="buildingtitle">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Building Name</th>
+                                    <th>Property Name</th>
                                     <th>City</th>
                                     <th>Locality</th>
                                     <th>Status</th>
@@ -73,12 +71,13 @@
                             </tbody>
                         </table>
                     </div>
-                    <button id="myBtn" title="Go to top">Top</button>
+                    <button  id="myBtn" title="Go to top">Top</button>
+					<div style="height:50px;"></div>
                 </div>
             </div>
-
+           
         </div>
-        <div id="footer"></div>
+		<div id="footer"></div>
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 

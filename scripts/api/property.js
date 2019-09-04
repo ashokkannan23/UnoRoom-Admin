@@ -250,6 +250,25 @@ var Property = (() => {
 	}
 	
 	/**
+	 * Add Room images to a property
+	 */
+	var addRoomImage = (propertyid,roomimageID, form_data) => {
+		var addroomimages = {
+			form_data
+		};
+		return Api.httpPostImage('facility/room/image/' + propertyid + '/' + roomimageID, form_data, true);
+	}
+	
+	/**
+	 * Delete Room images to a property
+	 */
+	var deleteRoomImage = (propertyid, roomID, roomimageID) => {
+		return Api.httpDeleteImage('facility/room/image/' + propertyid + '/' + roomID + '/' + roomimageID, true);
+	}
+	
+	
+	
+	/**
 	 * Update amenities
 	 */
 	var updateAmenities = (propertyid, amenities, rules) => {
@@ -275,6 +294,8 @@ var Property = (() => {
 		addImage,
 		deletePropertyImage,
 		deleteRoom,
+		addRoomImage,
+		deleteRoomImage,
 		updateAmenities
 	}
 })();

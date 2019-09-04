@@ -35,7 +35,7 @@
 			var image = '';
 			var imageid = mPropertyDetails.images;
 			var imagelength = mPropertyDetails.images.length;
-			var imageUrls = imageid.map(image => 'http://ec2-13-233-247-246.ap-south-1.compute.amazonaws.com:8080/facility/' + image.url);
+			var imageUrls = imageid.map(image => 'http://192.168.1.211:3000/facility' + image.url);
 
 			var display = mPropertyDetails.images;
 

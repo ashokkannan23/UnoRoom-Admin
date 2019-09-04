@@ -108,7 +108,7 @@
 }
 
 .navigation-clean-search .form-inline .search-field:focus {
-  border-bottom:1px solid #ccc;
+  /* border-bottom:1px solid #ccc; */
 }
 
 .building-list {

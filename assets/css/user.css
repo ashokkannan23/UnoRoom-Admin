@@ -29,45 +29,11 @@ padding:0;
 #main-table{
 margin-left: 16%;
 }
-#room_type[disabled]{
+#password[disabled],#role[disabled]{
 background-color: #EBEBE4;
 }
 input[type='text'][disabled]{
 background-color: #EBEBE4;
-}
-.imageThumb {
-height: 50px;
-width: 70px;
-border: 1px solid;
-cursor: pointer;
-
-}
-.imageThumbing{
-height: 100px;
-width: 150px;
-border: 1px solid;
-cursor: pointer;
-margin-bottom:-40px;
-}
-.pip {
-position: relative;
-display: inline-block;
-}
-.remove {
-position:relative;
-background:red;
-font-size:12px;
-width:20px;
-color: white;
-text-align: center;
-cursor: pointer;
-float:right;
-right:20px;
-
-}
-.remove:hover {
-background:black;
-color: white;
 }
 #footer{
 position: fixed;
@@ -96,6 +62,17 @@ border-radius: 4px;
 
 #myBtn:hover {
 background-color: #555;
+}
+.giveSpace{
+	padding-left:0.50rem;
+}
+
+.greenColorIcon{
+	color: green;
+}
+
+.redColorIcon{
+	color: red;
 }
 
 
@@ -164,11 +141,15 @@ width:100% ! important;
 float:right !important;
 padding:10px;
 margin-right:50px;
-/* z-index:1; */
-/* position:relative; */
-/* overflow-x: visible; */
+z-index:1;
+position:relative;
+overflow-x: visible;
 margin-top:-65px;
 
+}
+#Plus-button{
+float:right ! important;
+margin-left:80px !important;
 }
 .navbar-brand {
 display: none;
@@ -183,4 +164,13 @@ padding:10px;
 margin-right:10px;
 margin-top:-120px;
 }
+#Plus-button{
+float:left ! important;
+margin-left:150px !important;
+margin-top:-50px;
+padding-left:60px;
+
 }
+}
+
+

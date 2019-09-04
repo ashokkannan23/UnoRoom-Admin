@@ -1,5 +1,12 @@
 (() => {
 	$(document).ready(() => {
+		
+		var input = document.getElementsByClassName("myInput");
+		$(input).keyup(function (event) {
+			if (event.keyCode === 13) {
+				$("#user_authentication").click();
+			}
+		});
 
 		$('#user_authentication').on('click', () => {
 
